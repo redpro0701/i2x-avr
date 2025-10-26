@@ -1,4 +1,4 @@
-#include "i2x_master.h"
+#include "i2x.h"
 #include <avr/io.h>
 #include <util/delay.h>
 #include <stdio.h>
