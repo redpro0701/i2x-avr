@@ -9,19 +9,21 @@
 #define DEBUG_LOG 0
 #endif
 
+#define IX_STATUS (IXSR & 0xF8)
+#define IX_TIMEOUT 10000U
+
 #define IX_SCL_PIN PORTC5
 #define IX_SDA_PIN PORTC4
 #define IX_SCL_MASK (1 << IX_SCL_PIN)
 #define IX_SDA_MASK (1 << IX_SDA_PIN)
 
-#define IX_SLA_W(ADDR) ((ADDR << 1) | IX_WRITE)
-#define IX_SLA_R(ADDR) ((ADDR << 1) | IX_READ)
 
 #define IX_ACK  true
 #define IX_NACK false
 
-#define IX_STATUS (IXSR & 0xF8)
-#define IX_TIMEOUT 10000U
+#define IX_SLA_W(ADDR) ((ADDR << 1) | IX_WRITE)
+#define IX_SLA_R(ADDR) ((ADDR << 1) | IX_READ)
+
 
 typedef enum {
     I2X_SUCCESS = 0,
@@ -42,3 +44,4 @@ ret_code_t ix_master_transmit(uint8_t slave_addr, const uint8_t* p_data, uint8_t
 ret_code_t ix_master_receive(uint8_t slave_addr, uint8_t* p_data, uint8_t len);
 
 #endif /* I2X_MASTER_H_ */
+
