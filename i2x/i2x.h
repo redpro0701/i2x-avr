@@ -1,5 +1,5 @@
-#ifndef I2X_MASTER_H_
-#define I2X_MASTER_H_
+#ifndef I2X_H_
+#define I2X_H_
 
 #include <avr/io.h>
 #include <util/twi.h>
@@ -43,5 +43,6 @@ void ix_init(i2x_freq_mode_t i2x_freq, bool pullup_en);
 ret_code_t ix_master_transmit(uint8_t slave_addr, const uint8_t* p_data, uint8_t len, bool repeat_start);
 ret_code_t ix_master_receive(uint8_t slave_addr, uint8_t* p_data, uint8_t len);
 
-#endif /* I2X_MASTER_H_ */
+#endif /* I2X_H_ */
+
 
