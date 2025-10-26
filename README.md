@@ -1,7 +1,7 @@
 # I2X (I2C) Master Driver
 
 ## Overview
-Simple I2C master driver for AVR works for atmega2560,atmega328p **tested most**.  
+Simple I2C master driver for AVR works for atmega2560,atmega328p **tested most others should work too**.  
 Supports init, read, and write.
 
 ---
