@@ -9,20 +9,20 @@
 #define DEBUG_LOG 0
 #endif
 
-#define IX_STATUS (IXSR & 0xF8)
-#define IX_TIMEOUT 10000U
+#define I2X_STATUS (IXSR & 0xF8)
+#define I2X_TIMEOUT 10000U
 
-#define IX_SCL_PIN PORTC5
-#define IX_SDA_PIN PORTC4
-#define IX_SCL_MASK (1 << IX_SCL_PIN)
-#define IX_SDA_MASK (1 << IX_SDA_PIN)
+#define I2X_SCL_PIN PORTC5
+#define I2X_SDA_PIN PORTC4
+#define I2X_SCL_MASK (1 << I2X_SCL_PIN)
+#define I2X_SDA_MASK (1 << I2X_SDA_PIN)
 
 
-#define IX_ACK  true
-#define IX_NACK false
+#define I2X_ACK  true
+#define I2X_NACK false
 
-#define IX_SLA_W(ADDR) ((ADDR << 1) | IX_WRITE)
-#define IX_SLA_R(ADDR) ((ADDR << 1) | IX_READ)
+#define I2X_SLA_W(ADDR) ((ADDR << 1) | I2X_WRITE)
+#define I2X_SLA_R(ADDR) ((ADDR << 1) | I2X_READ)
 
 
 typedef enum {
@@ -34,14 +34,14 @@ typedef enum {
 } ret_code_t;
 
 typedef enum {
-    IX_FREQ_100K,
-    IX_FREQ_250K,
-    IX_FREQ_400K
+    I2X_FREQ_100K,
+    I2X_FREQ_250K,
+    I2X_FREQ_400K
 } i2x_freq_mode_t;
 
-void ix_init(i2x_freq_mode_t i2x_freq, bool pullup_en);
-ret_code_t ix_master_transmit(uint8_t slave_addr, const uint8_t* p_data, uint8_t len, bool repeat_start);
-ret_code_t ix_master_receive(uint8_t slave_addr, uint8_t* p_data, uint8_t len);
+void i2x_init(i2x_freq_mode_t i2x_freq, bool pullup_en);
+ret_code_t i2x_transmit(uint8_t slave_addr, const uint8_t* p_data, uint8_t len, bool repeat_start);
+ret_code_t i2x_receive(uint8_t slave_addr, uint8_t* p_data, uint8_t len);
 
 #endif /* I2X_H_ */
 
